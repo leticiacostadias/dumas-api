@@ -18,14 +18,9 @@ const init = async () => {
     console.log(`Server running at: ${server.info.uri}`)
   })
 }
+const routes = require('./api/routes')
 
-server.route({
-  method: 'GET',
-  path: '/',
-  handler: (request, h) => {
-    return 'Hello world!'
-  }
-})
+server.route(routes)
 
 process.on('unhandledRejection', (err) => {
   console.log(err)
