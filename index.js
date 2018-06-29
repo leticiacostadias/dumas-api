@@ -7,7 +7,7 @@ const server = Hapi.server({
 })
 const init = async () => {
   server.ext('onRequest', function (request, reply) {
-    console.log(`Request received: ${request.path}`)
+    console.log(`Request received: ${request.method.toUpperCase()} ${request.path}`)
     return reply.continue
   })
 
