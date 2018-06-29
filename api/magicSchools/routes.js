@@ -5,7 +5,7 @@ const routes = [{
   path: '/magic-schools',
   handler: (request, reply) => {
     return MagicSchool.find()
-  },
+  }
 }, {
   method: 'POST',
   path: '/magic-schools',
