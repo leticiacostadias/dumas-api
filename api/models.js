@@ -1,7 +1,11 @@
+const Class = require('./magicSchools/model')
+const MagicSchool = require('./magicSchools/model')
 const Spell = require('./spells/model')
-const MagicSchools = require('./magicSchools/model')
+const Subclass = require('./subclasses/model')
 
 module.exports = {
-  MagicSchools,
-  Spell
+  Class,
+  MagicSchool,
+  Spell,
+  Subclass
 }
