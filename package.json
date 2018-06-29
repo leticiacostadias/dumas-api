@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/leticiacostadias/dumas-api#readme",
   "devDependencies": {
+    "axios": "^0.18.0",
     "nodemon": "^1.17.5",
     "standard": "^11.0.1"
   },
