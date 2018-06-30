@@ -9,8 +9,12 @@ const ItemSchema = new Schema({
     kg: Number,
     lb: Number
   },
-  desc: String,
-  contains: [ObjectId],
+  desc: [String],
+  type: String,
+  contains: [{
+    quantity: Number,
+    item: ObjectId
+  }],
   page: String
 })
 

@@ -33,7 +33,7 @@ const WeaponSchema = new Schema({
       meters: Number,
       feets: Number,
       squares: Number
-    },
+    }
   },
   throw_range: {
     min: {
