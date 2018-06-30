@@ -1,19 +1,35 @@
 const Hapi = require('hapi')
 const mongoose = require('mongoose')
 
+const config = require('./config')
+const queryParser = require('./utils')
+
 const server = Hapi.server({
   port: 3000,
   host: 'localhost'
 })
-const init = async () => {
-  server.ext('onRequest', function (request, reply) {
-    console.log(`Request received: ${request.method.toUpperCase()} ${request.path}`)
-    return reply.continue
-  })
 
+const init = async () => {
   mongoose.connect('mongodb://dumasuser:Lcd98649911@ds121871.mlab.com:21871/dumas')
   mongoose.connection.once('open', async () => {
     console.log('Connected to dumas database!')
+
+    await server.register({
+      plugin: require('good'),
+      options: config.good
+    })
+
+    server.ext({
+      type: 'onRequest',
+      method: (request, reply) => {
+        if (request.method.toUpperCase() === 'GET') {
+          queryParser(request)
+        }
+
+        return reply.continue
+      }
+    })
+
     await server.start()
     console.log(`Server running at: ${server.info.uri}`)
   })

@@ -6,7 +6,7 @@ const routes = [{
   handler: () => Skill.find()
 }, {
   method: 'POST',
-  path: './skills',
+  path: '/skills',
   handler: (request) => {
     const skill = new Skill(request.payload)
 

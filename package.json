@@ -31,6 +31,11 @@
     "standard": "^11.0.1"
   },
   "dependencies": {
+    "boom": "^7.2.0",
+    "good": "^8.1.1",
+    "good-console": "^7.1.0",
+    "good-file": "^6.0.1",
+    "good-squeeze": "^5.1.0",
     "hapi": "^17.5.2",
     "mongoose": "^5.1.7"
   }

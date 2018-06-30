@@ -3,7 +3,11 @@ const Item = require('./model')
 const routes = [{
   method: 'GET',
   path: '/items',
-  handler: () => Item.find()
+  handler: (request) => {
+    console.log('On the handler:')
+    console.log(request.query)
+    return Item.find(request.query)
+  }
 }, {
   method: 'POST',
   path: '/items',
