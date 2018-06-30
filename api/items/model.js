@@ -12,6 +12,7 @@ const ItemSchema = new Schema({
   desc: [String],
   type: String,
   contains: [{
+    _id: false,
     quantity: Number,
     item: ObjectId
   }],
