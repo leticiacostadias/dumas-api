@@ -6,7 +6,8 @@ const SubclassSchema = new Schema({
   name: String,
   subclass_group: String,
   desc: [String],
-  features: [ObjectId]
+  features: [ObjectId],
+  page: String
 })
 
 module.exports = mongoose.model('Subclass', SubclassSchema)

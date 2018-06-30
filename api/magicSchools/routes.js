@@ -10,10 +10,18 @@ const routes = [{
   method: 'POST',
   path: '/magic-schools',
   handler: (request, reply) => {
-    const { name, desc } = request.payload
-    const magicSchool = new MagicSchool({ name, desc })
+    const magicSchool = new MagicSchool(request.payload)
 
     return magicSchool.save()
+  }
+}, {
+  method: 'PUT',
+  path: '/magic-schools/{id}',
+  handler: (request, reply) => {
+    return MagicSchool.findOneAndUpdate(
+      { _id: request.params.id },
+      request.payload
+    )
   }
 }]
 
