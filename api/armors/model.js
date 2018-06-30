@@ -17,7 +17,7 @@ const ArmorSchema = new Schema({
   },
   min_strength: Number,
   stealth_disadvantage: { type: Boolean, default: false },
-  page: String,
+  page: String
 })
 
 module.exports = mongoose.model('Armor', ArmorSchema)

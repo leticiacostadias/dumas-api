@@ -11,7 +11,7 @@ const ItemSchema = new Schema({
   },
   desc: String,
   contains: [ObjectId],
-  page: String,
+  page: String
 })
 
 module.exports = mongoose.model('Item', ItemSchema)

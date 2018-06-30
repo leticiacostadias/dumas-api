@@ -18,7 +18,7 @@ const WeaponSchema = new Schema({
   type: { type: String, match: /simples||marcial/ },
   range: { type: String, match: /corpo-a-corpo||distância/ },
   properties: [ObjectId],
-  page: String,
+  page: String
 })
 
 module.exports = mongoose.model('Weapon', WeaponSchema)

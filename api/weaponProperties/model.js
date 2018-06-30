@@ -4,7 +4,7 @@ const { Schema } = mongoose
 const WeaponPropertySchema = new Schema({
   name: String,
   desc: String,
-  page: String,
+  page: String
 })
 
 module.exports = mongoose.model('WeaponProperty', WeaponPropertySchema)
