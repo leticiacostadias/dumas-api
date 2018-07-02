@@ -1,3 +1,3 @@
-const queryParser = require('./queryParser')
+const queryHandler = require('./queryHandler')
 
-module.exports = { queryParser }
+module.exports = { queryHandler }

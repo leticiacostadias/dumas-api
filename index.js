@@ -2,7 +2,7 @@ const Hapi = require('hapi')
 const mongoose = require('mongoose')
 
 const config = require('./config')
-const queryParser = require('./utils')
+const { queryHandler } = require('./utils')
 
 const server = Hapi.server({
   port: 3000,
@@ -14,22 +14,21 @@ const init = async () => {
   mongoose.connection.once('open', async () => {
     console.log('Connected to dumas database!')
 
-    await server.register({
-      plugin: require('good'),
-      options: config.good
-    })
-
     server.ext({
       type: 'onRequest',
       method: (request, reply) => {
-        if (request.method.toUpperCase() === 'GET') {
-          queryParser(request)
+        if (request.method === 'get') {
+          queryHandler(request)
         }
 
         return reply.continue
       }
     })
 
+    await server.register({
+      plugin: require('good'),
+      options: config.good
+    })
     await server.start()
     console.log(`Server running at: ${server.info.uri}`)
   })
