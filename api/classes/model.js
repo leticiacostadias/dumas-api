@@ -6,15 +6,39 @@ const ClassSchema = new Schema({
   name: String,
   page: String,
   hit_dice: Number,
-  proficiency: [ObjectId],
-  proficiency_choices: [{
-    from: [ObjectId],
-    choose: Number
-  }],
-  saving_throws: [ObjectId],
-  starting_equipment: [ObjectId],
+  proficiencies: {
+    armors: [ObjectId],
+    weapons: [ObjectId],
+    saving_throws: [String],
+    tools: {
+      default: [ObjectId],
+      choose: [{
+        _id: false,
+        from: [ObjectId],
+        quantity: Number
+      }]
+    },
+    skills: [{
+      _id: false,
+      from: [ObjectId],
+      quantity: Number
+    }]
+  },
+  equipment: {
+    default: [ObjectId],
+    choose: [{
+      _id: false,
+      from: [ObjectId],
+      quantity: Number
+    }]
+  },
   subclasses: [ObjectId],
-  features: [ObjectId]
+  features: [{
+    _id: false,
+    title: String,
+    desc: [String],
+    page: String
+  }]
   /* class_levels: [{}] */
 })
 
