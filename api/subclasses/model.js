@@ -1,12 +1,16 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
-const { ObjectId } = Schema.Types
 
 const SubclassSchema = new Schema({
   name: String,
   subclass_group: String,
   desc: [String],
-  features: [ObjectId],
+  features: [{
+    _id: false,
+    title: String,
+    desc: [String],
+    page: String
+  }],
   page: String
 })
 
