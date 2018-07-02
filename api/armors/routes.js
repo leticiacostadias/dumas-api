@@ -3,7 +3,14 @@ const Armor = require('./model')
 const routes = [{
   method: 'GET',
   path: '/armors',
-  handler: () => Armor.find()
+  handler: (request) => {
+    const { query, limit, sort } = request.mongo
+
+    return Armor
+      .find(query)
+      .sort(sort)
+      .limit(limit)
+  }
 }, {
   method: 'POST',
   path: '/armors',

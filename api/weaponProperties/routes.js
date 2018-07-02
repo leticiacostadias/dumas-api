@@ -3,7 +3,14 @@ const WeaponProperty = require('./model')
 const routes = [{
   method: 'GET',
   path: '/weapon-properties',
-  handler: () => WeaponProperty.find()
+  handler: (request) => {
+    const { query, limit, sort } = request.mongo
+
+    return WeaponProperty
+      .find(query)
+      .sort(sort)
+      .limit(limit)
+  }
 }, {
   method: 'POST',
   path: '/weapon-properties',

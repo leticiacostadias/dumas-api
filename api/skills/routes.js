@@ -3,7 +3,14 @@ const Skill = require('./model')
 const routes = [{
   method: 'GET',
   path: '/skills',
-  handler: () => Skill.find()
+  handler: (request) => {
+    const { query, limit, sort } = request.mongo
+
+    return Skill
+      .find(query)
+      .sort(sort)
+      .limit(limit)
+  }
 }, {
   method: 'POST',
   path: '/skills',

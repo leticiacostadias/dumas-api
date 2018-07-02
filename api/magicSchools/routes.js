@@ -3,8 +3,13 @@ const MagicSchool = require('./model')
 const routes = [{
   method: 'GET',
   path: '/magic-schools',
-  handler: (request, reply) => {
-    return MagicSchool.find()
+  handler: (request) => {
+    const { query, limit, sort } = request.mongo
+
+    return MagicSchool
+      .find(query)
+      .sort(sort)
+      .limit(limit)
   }
 }, {
   method: 'POST',

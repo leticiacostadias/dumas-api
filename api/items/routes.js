@@ -4,9 +4,12 @@ const routes = [{
   method: 'GET',
   path: '/items',
   handler: (request) => {
-    console.log('On the handler:')
-    console.log(request.query)
-    return Item.find(request.query)
+    const { query, limit, sort } = request.mongo
+
+    return Item
+      .find(query)
+      .sort(sort)
+      .limit(limit)
   }
 }, {
   method: 'POST',
